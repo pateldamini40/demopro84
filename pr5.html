@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dynamic Student List</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            margin: 30px;
+        }
+
+        h2 {
+            color: darkblue;
+        }
+
+        button {
+            padding: 8px 15px;
+            margin-top: 10px;
+            cursor: pointer;
+        }
+
+        .card {
+            border: 1px solid gray;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2>Student Information</h2>
+
+    <button onclick="showStudents()">Show Students</button>
+    <button onclick="clearStudents()">Clear</button>
+
+    <div id="output"></div>
+
+<script>
+
+    // Array of Objects
+    let students = [
+        { name: "Damini", age: 20, course: "Computer Engineering" },
+        { name: "nax", age: 19, course: "Information Technology" },
+        { name: "Axay", age: 21, course: "Mechanical Engineering" }
+    ];
+
+    // Function to Display Students
+    function showStudents() {
+
+        let outputDiv = document.getElementById("output");
+        outputDiv.innerHTML = "";   // Clear previous data
+
+        for (let i = 0; i < students.length; i++) {
+
+            let studentCard = document.createElement("div");
+            studentCard.className = "card";
+
+            studentCard.innerHTML =
+                "<b>Name:</b> " + students[i].name + "<br>" +
+                "<b>Age:</b> " + students[i].age + "<br>" +
+                "<b>Course:</b> " + students[i].course;
+
+            outputDiv.appendChild(studentCard);
+        }
+    }
+
+    // Function to Clear Data
+    function clearStudents() {
+        document.getElementById("output").innerHTML = "";
+    }
+
+</script>
+
+</body>
+</html>
